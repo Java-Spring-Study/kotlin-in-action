@@ -7,11 +7,11 @@ fun max(a: Int, b: Int): Int {
 }
 ```
 
-코틀린에서는 함수를 만들 때 fun 키워드를 사용하고, 매개변수 이름 뒤에 타입이 온다. 반환 타입을 지정할 수도 있다.
+코틀린에서는 함수를 만들 때 `fun` 키워드를 사용하고, 매개변수 이름 뒤에 타입이 온다. 반환 타입을 지정할 수도 있다.
 
 그리고 자바는 모든 제어 구조가 문인 반면 코틀린에서는 루프를 제외한 대부분의 제어 구조가 식이다.
 
-이러한 특성 때문에 위 코드처럼 return에 if를 사용할 수 있는데 값을 만들거나 계산에 참여할 수 있는 것이다.
+이러한 특성 때문에 위 코드처럼 `return`에 `if`를 사용할 수 있는데 값을 만들거나 계산에 참여할 수 있는 것이다.
 
 반면 대입문은 자바에서 식이었으나 코틀린은 문이 됐다. 그로 인해 대입식(`=`)과 비교식(`==`)을 잘못 사용하는 실수가 없다.
 
@@ -25,7 +25,7 @@ fun max(a: Int, b: Int): Int = if (a > b) a else b
 fun max(a: Int, b: Int) = if (a > b) a else b
 ```
 
-처음에 만든 max 함수를 식으로 만들면 코드를 더 간결하게 만들 수 있다. 또한 식은 if 분기의 마지막이 결과 값이기 때문에 `return`을 제거할 수 있다.
+처음에 만든 `max` 함수를 식으로 만들면 코드를 더 간결하게 만들 수 있다. 또한 식은 `if` 분기의 마지막이 결과 값이기 때문에 `return`을 제거할 수 있다.
 
 <!-- 자바와 다르게 무조건 클래스 안에 함수를 넣을 필요가 없다. -->
 
@@ -40,7 +40,7 @@ fun max(a: Int, b: Int) = if (a > b) a else b
 * val(value): 변경 불가능(immutable)한 변수. 자바의 final에 해당한다.
 * var(variable): 변경 가능한(mutable)한 변수. 자바의 일반 변수에 해당한다.
 
-기본적으로 모든 변수에 val 키워드를 사용하여 불변 변수로 선언하고, 나중에 꼭 필요할 때만 var로 변경하라고 한다.
+기본적으로 모든 변수에 `val` 키워드를 사용하여 불변 변수로 선언하고, 나중에 꼭 필요할 때만 `var`로 변경하라고 한다.
 
 ### 문자열 템플릿
 
@@ -52,7 +52,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-문자열 템플릿을 사용하면 쌍따옴표 안에 `${variable}` 형식으로 넣어서 출력할 수 있으며, if 식을 사용하여 변수를 유동적으로 선언할 수 있다.
+문자열 템플릿을 사용하면 쌍따옴표 안에 `${variable}` 형식으로 넣어서 출력할 수 있으며, `if` 식을 사용하여 변수를 유동적으로 선언할 수 있다.
 
 ## 클래스
 
@@ -92,9 +92,9 @@ class Person (
 
 ### 프로퍼티
 
-코틀린은 프로퍼티 개념을 기본으로 제공하기 때문에 자바에서 선언했던 getter, setter 메서드를 코틀린에서는 `val`와 `var`에 따라서 유동적으로 동작하며, 생성자도 자동으로 만들어준다.
+코틀린은 프로퍼티 개념을 기본으로 제공하기 때문에 자바에서 선언했던 getter, setter 메서드를 코틀린에서는 `val`와 `var`에 따라서 유동적으로 만들어주며, 생성자도 만들어준다.
 
-자바에서는 `setName()`, `getName()` 메서드를 호출했지만 코틀린에서는 `person.name`을 출력하면 `getName()`이, `person.name = "qwe"`를 하면 `setName()`이 호출된다. 직관적인 코드 작성이 가능하다고 볼 수 있다. (C#에서 사용하는 형태이다.)
+자바에서는 `setName()`, `getName()` 메서드를 호출했지만 코틀린에서는 `person.name`을 출력하면 `getName()`, `person.name = "qwe"`를 하면 `setName()`이 호출된다. 직관적인 코드 작성이 가능하다고 볼 수 있다. (C#에서 사용하는 형태이다.)
 
 #### 커스텀 접근자
 
@@ -154,7 +154,7 @@ fun mixOptimized(c1: Color, c2: Color) =
     }
 ```
 
-또한 `setOf`를 사용하여 인자로 받은 객체가 각 분기의 조건에 있는 객체와 같은지 확인할 수 있으며, boolean 계산식으로 표현할 수도 있다.
+또한 `setOf`를 사용하여 인자로 받은 객체가 각 분기의 조건에 있는 객체와 같은지 확인할 수 있으며, `boolean` 계산식으로 표현할 수도 있다.
 
 즉 임의의 객체를 분기의 조건으로 사용할 수 있다는 장점이 있다. 
 
@@ -210,7 +210,7 @@ fun eval(e: Expr) : Int =
     }
 ```
 
-if 식에서 만들었던 eval 함수와 비교하면 훨씬 직관적인 코드로 변경되었다. when에서 boolean을 사용할 수 있다는 장점을 활용하여 `is`를 사용했을 때 스마트 캐스팅이 동작하며 값이 `true`라면 캐스팅된 값으로 동작하게 된다.
+`if`를 사용하여 만든 `eval` 함수와 비교하면 훨씬 직관적인 코드로 변경되었다. `when`에서 `boolean`을 사용할 수 있다는 장점을 활용하여 `is`를 사용했을 때 스마트 캐스팅이 동작하며 값이 `true`라면 캐스팅된 값으로 코드가 진행된다.
 
 ```kotlin
 fun evalUsingWhen(e: Expr) : Int =
@@ -257,7 +257,7 @@ fun main(args: Array<String>) {
 }
 ```
 
-`..`으로 범위 지정을 할 수 있으며, `downTo`를 사용하여 역방향 loop를 하거나 `step`을 사용하여 증가 값을 수정할 수도 있다. 파이썬의 `for i in range(start, stop, step)`와 매우 유사한 형태라고 생각하면 된다.
+`..`으로 범위 지정을 할 수 있으며, `downTo`를 사용하여 역방향 loop를 하거나 `step`을 사용하여 증가 값을 수정할 수도 있다. python의 `for i in range(start, stop, step)`와 매우 유사한 형태라고 생각하면 된다.
 
 ### Map에 대한 iteration
 
@@ -300,3 +300,35 @@ println("Kotlin" in "Java".."Scala") // true
 // 컬렉션에서 in을 사용하여 집합에 해당 문자가 있는지 확인한다.
 println("Kotlin" in setOf("Java", "Scala", "kotlin")) // false
 ```
+
+## 예외처리
+
+```kotlin
+fun readNumber(reader: BufferedReader) : Int? {
+    try {
+        val line = reader.readLine()
+        return Integer.parseInt(line)
+    }
+    catch (e: NumberFormatException) {
+        return null
+    }
+    finally {
+        reader.close()
+    }
+}
+
+// try도 식으로 표현할 수 있다. (마지막 식이 결과 값이다.)
+fun readNumberUsingExpression(reader: BufferedReader) {
+    var number = try {
+        Integer.parseInt(reader.readLine())
+    } catch (e: NumberFormatException) {
+        null
+    }
+}
+```
+
+자바에서는 예외처리를 할 때 발생할 수 있는 예외들을 `catch`와 `throws`를 사용해야 한다.
+
+하지만 코틀린은 체크 예외(ex: `IOException`)와 언체크 예외를 구별하지 않으며 예외를 잡아도 되고 잡아내지 않아도 된다. 
+
+이는 자바에서 의미 없이 예외를 잡거나, 예외를 잡아도 추가 동작을 하지 않는 코드들 때문에 위와 같이 설계했다고 한다.
