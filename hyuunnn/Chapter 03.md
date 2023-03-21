@@ -231,7 +231,7 @@ public infix fun <A, B> A.to(that: B): Pair<A, B> = Pair(this, that)
 val (number, name) = 1 to "one"
 ```
 
-또한 `Pair`를 통해 key, value로 나눠진 값을 number와 name에 분해되어 변수에 저장되었다.
+또한 `Pair`를 통해 key, value로 나눠진 값을 number와 name에 분해되어 변수에 저장할 수 있다.
 
 ## 문자열과 정규식
 
@@ -240,6 +240,8 @@ val (number, name) = 1 to "one"
 public String[] split(String regex) {
     return split(regex, 0);
 }
+
+public String[] split(String regex, int limit) { ... }
 ```
 
 ```java
@@ -247,7 +249,7 @@ public String[] split(String regex) {
 String[] strList = "12.345-6.A".split("\\.|-"); // O
 ```
 
-자바에서는 정규식으로 `split`을 사용해야 하며, 배열로 반환 받는다.
+자바에서는 정규식으로 `split`을 사용해야 하며, `split(".")`는 빈 배열을 반환한다. (.은 모든 문자를 나타내는 정규식이기 때문에 모든 문자를 기준으로 split 되어 빈 배열을 반환한다.)
 
 하지만 코틀린은 `split`을 자바 표준 API보다 좀 더 다양한 함수들을(split 확장 함수) 제공한다.
 
@@ -269,11 +271,11 @@ public inline fun CharSequence.split(regex: Regex, limit: Int = 0): List<String>
 ```
 
 ```kotlin
-println("12.345-6.A".split("\\.|-".toRegex()))
-println("12.345-6.A".split(".", "-"))
+println("12.345-6.A".split("\\.|-".toRegex())) // [12, 345, 6, A]
+println("12.345-6.A".split(".", "-")) // [12, 345, 6, A]
 ```
 
-자바와 다르게 `split`에 정규식 외에 문자를 사용할 수 있으며, `vararg`(가변인자)를 사용하기 때문에 여러 개의 delimiter를 받을 수 있다.
+자바와 다르게 `split`에 정규식이 아닌 문자를 사용할 수 있으며, `vararg`(가변인자)를 사용하기 때문에 여러 개의 delimiter를 받을 수 있다.
 
 위 함수 외에도 편의를 위한 오버로딩 함수들이 구현되어 있다. (`Strings.kt` 참고)
 
