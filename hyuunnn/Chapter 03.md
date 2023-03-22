@@ -199,7 +199,7 @@ sb.lastChar = '!'
 println(sb) // Kotlin!
 ```
 
-위 코드는 `StringBuilder`의 확장 프로퍼티이며, `setCharAt`을 사용하여 마지막 값을 수정하기 때문에 `var`을 사용했다.
+위 코드는 `StringBuilder`의 확장 프로퍼티로 `lastChar`를 만들었으며, `setCharAt`을 사용하여 마지막 값을 수정하기 때문에 `var`을 사용했다.
 
 ## 컬렉션 처리
 
@@ -242,6 +242,8 @@ val (number, name) = 1 to "one"
 ```
 
 또한 `Pair`를 통해 key, value로 나눠진 값을 number와 name에 분해되어 변수에 저장할 수 있다.
+
+`withIndex()`도 구조 분해를 통해 `index`와 `element`에 데이터가 들어갈 수 있었다.
 
 ## 문자열과 정규식
 
