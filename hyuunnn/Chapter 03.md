@@ -89,7 +89,7 @@ public fun <T> List<T>.last(): T {
 
 ```kotlin
 package strings 
-fun String.lastChar(): Char = this.get(this.length - 1)
+fun String.lastChar(): Char = this.get(this.length - 1) // String: 수신 객체 타입(receiver type), this: 수신 객체(receiver object)
 ```
 
 클래스 밖에 선언된 함수지만 클래스의 멤버 메서드인 것처럼 호출할 수 있다.
@@ -133,6 +133,16 @@ val c = "Kotlin".last()
 ```
 
 확장 함수를 정의했더라도 임포트하지 않으면 사용할 수 없다. as 키워드를 사용하면 다른 이름으로 사용할 수 있으며, 파이썬에서 자주 사용되는 키워드이다.
+
+### 자바에서 확장 함수 호출하는 방법
+
+`StringUtil.kt`에 `lastChar` 확장 함수를 정의했다고 가정했을 때 아래 코드처럼 첫 번째 인자에 수신 객체를 넘겨주면 된다.
+
+`"Kotlin".lastChar() -> StringUtilKt.lastChar("Java")`
+
+```java
+char c = StringUtilKt.lastChar("Java");
+```
 
 ### 확장 함수는 오버라이드할 수 없다.
 
