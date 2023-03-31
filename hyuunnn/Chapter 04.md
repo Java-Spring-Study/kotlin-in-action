@@ -67,10 +67,10 @@ abstract class Animated {
 
 ### 클래스 내 상속 제어 변경자
 
-final : 오버라이드할 수 없음, 클래스 멤버의 기본 변경자
-open : 오버라이드할 수 있음, 반드리 open을 명시해야 오버라이드가 가능하다.
-abstract : 반드시 오버라이드해야 함, 추상 클래스의 멤버에만 사용 가능 + 추상 멤버에 구현이 있으면 안된다.
-override : 상위 클래스 or 상위 인스턴스의 멤버를 override, override는 기본적으로 열려있기 때문에 금지하려면 final을 명시해야 한다. (`final override fun click()`)
+* final : 오버라이드할 수 없음, 클래스 멤버의 기본 변경자
+* open : 오버라이드할 수 있음, 반드리 open을 명시해야 오버라이드가 가능하다.
+* abstract : 반드시 오버라이드해야 함, 추상 클래스의 멤버에만 사용 가능 + 추상 멤버에 구현이 있으면 안된다.
+* override : 상위 클래스 or 상위 인스턴스의 멤버를 override, override는 기본적으로 열려있기 때문에 금지하려면 final을 명시해야 한다. (`final override fun click()`)
 
 ### 가시성 변경자
 
